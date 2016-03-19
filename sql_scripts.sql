@@ -15,7 +15,6 @@ CREATE TABLE `votes` (
 CREATE TABLE `offices` (
   `OfficeID` int(11) NOT NULL DEFAULT '0',
   `Name` varchar(500) DEFAULT NULL,
-  `OfficeTypeID` int(11) DEFAULT NULL,
   PRIMARY KEY (`OfficeID`)
 );
 
@@ -36,6 +35,11 @@ CREATE TABLE `OfficeTypes` (
   `Name` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`ID`)
 );
+
+alter table offices add `OfficeTypeID` int(11) DEFAULT NULL;
+alter table votes add Year int;
+
+update votes set Year = 2015
 
 insert into OfficeTypes (Name) values ('City'), ('District'), ('Referendum');
 
