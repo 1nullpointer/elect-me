@@ -42,7 +42,7 @@ CREATE TABLE `Local2013` (
   Category varchar(200) DEFAULT NULL,
   Candidate varchar(200) DEFAULT NULL,
   Party varchar(200) DEFAULT NULL,
-  Votes varchar(200) DEFAULT NULL,
+  Votes int DEFAULT NULL,
   PRIMARY KEY (`ID`)
 );
 
