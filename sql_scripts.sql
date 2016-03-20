@@ -42,8 +42,7 @@ CREATE TABLE `Local2013` (
   Category varchar(200) DEFAULT NULL,
   Candidate varchar(200) DEFAULT NULL,
   Party varchar(200) DEFAULT NULL,
-  Votes varchar(200) DEFAULT NULL,
-  primary key (ID)
+  Votes varchar(200) DEFAULT NULL
 );
 
 alter table offices add `OfficeTypeID` int(11) DEFAULT NULL;
