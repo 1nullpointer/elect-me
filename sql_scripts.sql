@@ -47,6 +47,15 @@ CREATE TABLE `Local2013` (
   Division int DEFAULT NULL
 );
 
+create table CurrentPositions (
+  WARD int,
+  DIVISION int,
+  POSITION varchar(200),
+  LAST varchar(200),
+  FIRST varchar(200),
+  MID varchar(10),
+  ELECTED tinyint);
+
 alter table offices add `OfficeTypeID` int(11) DEFAULT NULL;
 alter table votes add Year int;
 
