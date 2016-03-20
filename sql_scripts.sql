@@ -88,6 +88,24 @@ order by WinnerVoteCount
 limit 10;
 
 
+select t.Office, min(t.VoteCount) as MinVoteCount
+from
+    (
+    select o.Name as Office, c.Name, sum(v.vote) as VoteCount
+    from votes v
+        left join candidates c on v.CandidateID = c.CandidateID
+        left join offices o on v.OfficeID = o.OfficeID
+        left join OfficeTypes ot on o.OfficeTypeID = ot.ID
+    where ot.Name = 'City' and o.Name not like 'RETENTION%' and o.Name <> 'No Vote'
+    group by o.OfficeID, c.Name
+    ) as t
+where t.Name in 
+    (
+    select Candidate from Winners2015 where Elected = 1
+    )
+group by t.Office
+order by MinVoteCount
+limit 10;
 
 
 select Category, Ward, Division, WinningVotes
