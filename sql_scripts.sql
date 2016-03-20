@@ -37,13 +37,11 @@ CREATE TABLE `OfficeTypes` (
 );
 
 CREATE TABLE `Local2013` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
   Precinct varchar(10) DEFAULT NULL,
   Category varchar(200) DEFAULT NULL,
   Candidate varchar(200) DEFAULT NULL,
   Party varchar(200) DEFAULT NULL,
-  Votes int DEFAULT NULL,
-  PRIMARY KEY (`ID`)
+  Votes varchar(200) DEFAULT NULL,
 );
 
 alter table offices add `OfficeTypeID` int(11) DEFAULT NULL;
