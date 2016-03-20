@@ -36,13 +36,22 @@ CREATE TABLE `OfficeTypes` (
   PRIMARY KEY (`ID`)
 );
 
+CREATE TABLE `Local2013` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  Precinct varchar(10) DEFAULT NULL,
+  Category varchar(200) DEFAULT NULL,
+  Candidate varchar(200) DEFAULT NULL,
+  Party varchar(200) DEFAULT NULL,
+  Votes varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+);
+
 alter table offices add `OfficeTypeID` int(11) DEFAULT NULL;
 alter table votes add Year int;
 
 update votes set Year = 2015
 
 insert into OfficeTypes (Name) values ('City'), ('District'), ('Referendum');
-
 
 update offices set OfficeTypeID = case when Name like '%DISTRICT%' then 2 
                                     when Name like '%QUESTION%' then 3 
