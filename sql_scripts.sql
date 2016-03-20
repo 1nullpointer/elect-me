@@ -56,6 +56,11 @@ create table CurrentPositions (
   MID varchar(10),
   ELECTED tinyint);
 
+create table Winners2015(
+  Position varchar(200),
+  Candidate varchar(200),
+  Elected tinyint);
+
 alter table offices add `OfficeTypeID` int(11) DEFAULT NULL;
 alter table votes add Year int;
 
@@ -80,4 +85,17 @@ from
     ) as t
 group by t.Office
 order by WinnerVoteCount
+limit 10;
+
+
+
+
+select Category, Ward, Division, WinningVotes
+from 
+    (
+    select Category, Ward, Division, max(Votes) as WinningVotes
+    from Local2013
+    group by Category, Ward, Division
+    ) as t
+order by WinningVotes
 limit 10;
