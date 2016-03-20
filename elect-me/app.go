@@ -1,21 +1,22 @@
 package electme
 
 import (
-	"net/http"
-	//"time"
-
 	"appengine"
+	"net/http"
 )
 
 const basePath = "elect-me"
 
+var offices []*office
+
 func init() {
+	getOffices()
 	//basePath = "rapdemo"
 	fs := http.FileServer(http.Dir(basePath + "/static"))
 	http.Handle("/static/", http.StripPrefix("/static", fs))
 
 	//api
-	//http.Handle("/positions", appHandler(resources))
+	//http.Handle("/offices", appHandler(offices))
 
 	//handles the templated but otherwise mostly static html pages
 	http.Handle("/", appHandler(serveTemplate))
