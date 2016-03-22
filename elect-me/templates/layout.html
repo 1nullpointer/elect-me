@@ -1,0 +1,52 @@
+{{define "layout"}}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Elect Me - {{template "title"}}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/offcanvas.css">
+    
+    {{template "styles"}}
+  </head>
+  <body>
+    <nav class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/index.html">Elect Me</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/about.html">About</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div id="maincontent" class="container">
+      {{template "body" . }}
+    </div>
+    
+    <footer>
+      <div class="container">
+	<div class="row">
+	  <div class="col-xs-10 col-lg-10 col-offset-lg-1">
+	    <p>A product of #DemHack2016 and <a href="www.codeforphilly.org"> CodeForPhilly</a>. Help contribute on <a href="www.github.com/1nullpointer/elect-me">Github</a></p>
+	  </div>
+	</div>
+      </div>
+    </footer>
+<script   src="https://code.jquery.com/jquery-2.2.2.min.js"   integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI="   crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <!--<script src="/static/.js"></script>-->
+    {{template "scripts"}}
+  </body>
+</html>
+{{end}}

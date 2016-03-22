@@ -1,0 +1,40 @@
+{{define "title"}}Resource Awareness Philadelphia{{end}}
+{{define "styles"}}{{end}}
+{{define "scripts"}}{{end}}
+{{define "body"}}
+<div class="row row-offcanvas row-offcanvas-right">
+  <div class="col-xs-12 col-sm-11">
+    <p class="pull-right visible-xs">
+      <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+    </p>
+    <div class="jumbotron">
+      <h1>Elect Me</h1>
+      <h2>The app to help <i>You</i> get elected</h2>
+      <hr />
+      <p>Lowing the bar for public service</p>
+    </div>
+   
+    <div class="row">
+      {{ range $key, $val:= . }}
+      <div class="col-xs-10 col-lg-10 col-offset-lg-1">
+        <h3>{{$val.Position}}</h3>
+        <p>{{$val.Description}}</p>
+        <p><a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse-{{$key}}" aria-expanded="false" aria-controls="collapseExample">
+	    Show Details
+	  </a>
+	</p>
+	<div class="collapse" id="collapse-{{$key}}">
+	  <p>Salary: {{$val.Salary}}</p>
+	  <p>Vote Count in the last election: {{$val.VoteCount}}</p>
+	  <p>Minimum Age: {{$val.MinAge}}</p>
+	  <p>Requirements: {{$val.Requirments}}</p>
+	  <p>Petition Signatures: {{$val.PetitionSignatures}}</p>
+	  <p>Residency in District Required: {{$val.ResidencyInDistrict}}</p>
+	  <p>Filing Fee: {{$val.Filing}}</p>
+	</div>
+      </div>
+      {{end}}
+    </div>
+  </div>
+</div>
+{{end}}
