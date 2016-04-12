@@ -3,20 +3,20 @@ package electme
 import (
 	"appengine"
 	"net/http"
+	"path"
 )
 
-const basePath = "elect-me"
-
-var offices []*office
+const basePath = "./" // This server should serve from the root
 
 func init() {
+
 	getOffices()
-	//basePath = "rapdemo"
-	fs := http.FileServer(http.Dir(basePath + "/static"))
+
+	fs := http.FileServer(http.Dir(path.Join(basePath + "/static")))
 	http.Handle("/static/", http.StripPrefix("/static", fs))
 
 	//api
-	//http.Handle("/offices", appHandler(offices))
+	http.Handle("/offices", appHandler(Offices))
 
 	//handles the templated but otherwise mostly static html pages
 	http.Handle("/", appHandler(serveTemplate))
