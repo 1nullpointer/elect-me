@@ -15,7 +15,12 @@ func init() {
 	fs := http.FileServer(http.Dir(path.Join(basePath + "/static")))
 	http.Handle("/static/", http.StripPrefix("/static", fs))
 
-	//api
+	// This is a waste of whitespace and the and will unnecessarily increase
+	// the compile time. This function could be handled directy.
+	//
+	// http.HandleFunc("/offices", Offices)
+	//
+
 	http.Handle("/offices", appHandler(Offices))
 
 	//handles the templated but otherwise mostly static html pages
